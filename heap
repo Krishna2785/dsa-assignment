@@ -1,0 +1,74 @@
+#include<iostream>
+using namespace std;
+
+class HS{
+
+   private: int A[20];
+            int n;
+   
+   public :
+            HS (void)
+            { n=0;}
+            void accept(void);
+            void display(void);
+            void heapsort(void);
+            void adjust (int i,int n);     
+};
+void HS :: accept(void){
+   cout<<"enter the no of elements in list";
+    cin>>n;
+   for(int i=1; i<=n; i++){
+   cout<<"elements";
+   cin>>A[i];
+   
+   }
+}
+
+void HS :: display(void){
+   cout<<"elements in the list";
+   for(int i=1;i<n;i++){
+   cout << A[i]<<" ";
+   }
+   cout<<endl;
+}
+
+void HS :: adjust (int i,int n){
+ int j;
+ j= 2*i;
+ int no = A[i];
+ while (j<=n){
+ if (j<n && A[j]<A[j+1])
+          j++;
+     if(no<A[j])
+     {
+     A[j/2]=A[i];
+     j=2*i;    
+     }  
+     else{
+         break ;
+     }   
+     A[j/2] =no;
+}
+}
+void HS :: heapsort (void){  
+   int i;
+   for(i=n/2 ; i>=1 ; i--){
+       adjust(i,n); 
+       }
+   for(i=n;i>=2;i--){
+       swap(A[1].A[i])
+     
+       adjust (1,i-1);
+       }
+}
+
+int main (void){
+   HS h;
+   h.accept();
+   h.display();
+   h.heapsort();
+   
+   return 0;
+}
+
+
